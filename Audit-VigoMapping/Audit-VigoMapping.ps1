@@ -111,6 +111,33 @@ Function Test-DriveMappingRemotePath {
   }
 }
 
+Function Get-ItemFromDesktop {
+  Param ([Parameter(Mandatory = $true)][string]$Search)
+
+  Begin {
+    Write-LogInfo -LogPath $sLogFile -Message "Get-ItemFromDesktop: Param Search $Search"
+  }
+
+  Process {
+    Try {
+      $results = @(Get-ChildItem -Path $env:userprofile\Desktop\* -Filter "$Search" | Sort-Object -Property Name)
+      return $results
+    }
+
+    Catch {
+      Write-LogError -LogPath $sLogFile -Message $_.Exception -ExitGracefully
+      Break
+    }
+  }
+
+  End {
+    If ($?) {
+      Write-LogInfo -LogPath $sLogFile -Message "Get-ItemFromDesktop: Completed Successfully."
+      Write-LogInfo -LogPath $sLogFile -Message " "
+    }
+  }
+}
+
 <#
 Function <FunctionName> {
   Param ()
@@ -176,7 +203,7 @@ else {
 Write-Host " "
 Write-Host "Searching for VigoGLogon shortcut on desktop" -ForegroundColor Yellow
 Write-Host " "
-$results = @(Get-ChildItem -Path $env:userprofile\Desktop\* -Filter "Vigo*" | Sort-Object -Property Name)
+$results = Get-ItemFromDesktop -Search "Vigo*"
 Write-Host "Found $($results.Length) shortcuts" -ForegroundColor Yellow
 $results | ForEach-Object -Begin { $script:idx = 0 } -Process { 
   ++$idx
