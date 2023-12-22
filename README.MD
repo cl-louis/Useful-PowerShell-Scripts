@@ -38,3 +38,9 @@ See README.MD in Audit-VigoMapping for more information.
 This PowerShell script creates a report of any non-builtin Security Groups that have no members.
 
 See README.MD in Groups-EmptySecGroupsAudit for more information.
+
+### OU-GPOApplicationAuditTool
+
+This script finds all OUs in a domain and their applied/inherited GPOs.
+
+See README.MD in OU-GPOApplicationAuditTool for more information.
