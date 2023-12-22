@@ -44,3 +44,9 @@ See README.MD in Groups-EmptySecGroupsAudit for more information.
 This script finds all OUs in a domain and their applied/inherited GPOs.
 
 See README.MD in OU-GPOApplicationAuditTool for more information.
+
+### Users-LastLogonAudit
+
+This PowerShell script creates a report of LastLogon for all User Accounts in the current logged on users domain. The script queries all DC's in the domain to find the most recent logon as LastLogon is stored independantly on each DC in a Forest.
+
+See README.MD in Users-LastLogonAudit for more information.
