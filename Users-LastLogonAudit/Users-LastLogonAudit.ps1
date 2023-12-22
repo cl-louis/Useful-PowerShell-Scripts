@@ -210,3 +210,4 @@ Read-Host -Prompt "Press enter to exit..." | Out-Null
 Write-LogInfo -LogPath $sLogFile -Message "Users-LastLogonAudit: Script finished"
 # SCRIPT END
 Stop-Log -LogPath $sLogFile
+Stop-Transcript
