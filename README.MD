@@ -12,7 +12,7 @@ This repo is a collection of PowerShell scripts for:
 Clone/download the entire repo:
 
 ```cmd
-git clone https://github.com/cl-louis/PowerShell-Scripts.git
+git clone https://github.com/cl-louis/Useful-PowerShell-Scripts.git
 ```
 
 Open the directory of the required script.
