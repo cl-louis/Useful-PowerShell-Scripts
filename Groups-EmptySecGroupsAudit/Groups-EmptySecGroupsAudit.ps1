@@ -1,35 +1,37 @@
 #requires -version 5
 <#
 .SYNOPSIS
-  <Overview of script>
+  This PowerShell script creates a report of any non-builtin Security Groups that have no members.
 
 .DESCRIPTION
-  <Brief description of script>
+  This PowerShell script creates a report of any non-builtin Security Groups that have no members.
+  Use this script to find Security Groups that could be scheduled for removal.
 
-.PARAMETER <Parameter_Name>
-  <Brief description of parameter. Repeat this attribute if required>
+.PARAMETER N/A
+  N/A
 
-.INPUTS <Input_Name>
-  <Brief description of input. Repeat this attribute if required>
+.OUTPUTS Log File
+  Log file stored in "Documents\Groups-EmptySecGroupsAudit\Groups-EmptySecGroupsAudit.log"
 
-.OUTPUTS <Output_Name>
-  <Brief description of output. Repeat this attribute if required>
+.OUTPUTS Transcript File
+  Log file stored in "Documents\Groups-EmptySecGroupsAudit\Groups-EmptySecGroupsAudit.transcript"
+
+.OUTPUTS Report File
+  Report file stored in "Documents\Groups-EmptySecGroupsAudit\Groups-EmptySecGroupsAudit.csv"
 
 .NOTES
   Version:        1.0
-  Author:         <Name>
-  Creation Date:  <Date>
+  Author:         Louis Lawson
+  Creation Date:  21/12/2023
 
 .EXAMPLE
-  <Example explanation goes here>
-  
-  <Example goes here. Repeat this attribute for more than one example>
+  N/A
 #>
 
 #---------------------------------------------------------[Script Parameters]------------------------------------------------------
 
 Param (
-    # Script parameters go here
+  # N/A
 )
 
 #---------------------------------------------------------[Initialisations]--------------------------------------------------------
@@ -39,13 +41,13 @@ $ErrorActionPreference = "SilentlyContinue"
 
 # Import Modules & Snap-ins
 if (-not (Get-Module PSLogging -ListAvailable)) {
-    Install-Module PSLogging -Scope CurrentUser -Force
+  Install-Module PSLogging -Scope CurrentUser -Force
 }
 Import-Module PSLogging
 
 # ActiveDirectory module is required for group info
 if (-not (Get-Module ActiveDirectory -ListAvailable)) {
-    Install-Module ActiveDirectory -Scope CurrentUser -Force
+  Install-Module ActiveDirectory -Scope CurrentUser -Force
 }
 Import-Module ActiveDirectory
 
@@ -75,43 +77,15 @@ $sTranscriptFile = Join-Path -Path $sOutputDir -ChildPath $sTranscriptName
 
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 
-<#
-Function <FunctionName> {
-  Param ()
-
-  Begin {
-    Write-LogInfo -LogPath $sLogFile -Message "<description of what is going on>..."
-  }
-
-  Process {
-    Try {
-      <code goes here>
-    }
-
-    Catch {
-      Write-LogError -LogPath $sLogFile -Message $_.Exception -ExitGracefully
-      Break
-    }
-  }
-
-  End {
-    If ($?) {
-      Write-LogInfo -LogPath $sLogFile -Message "Completed Successfully."
-      Write-LogInfo -LogPath $sLogFile -Message " "
-    }
-  }
-}
-#>
-
 #-----------------------------------------------------------[Markdown]------------------------------------------------------------
 
 if ($PSVersionTable.PSVersion.Major -ge 6) {
-    Show-Markdown -Path "./README.MD"
+  Show-Markdown -Path "./README.MD"
 }
 else {
-    Write-Host $sScriptName -ForegroundColor Black -BackgroundColor White
-    Write-Host "Version: $sScriptVersion" -ForegroundColor Black -BackgroundColor White
-    Write-Host "Groups-EmptySecGroupsAudit" -ForegroundColor Black -BackgroundColor White
+  Write-Host $sScriptName -ForegroundColor Black -BackgroundColor White
+  Write-Host "Version: $sScriptVersion" -ForegroundColor Black -BackgroundColor White
+  Write-Host "This PowerShell script creates a report of any non-builtin Security Groups that have no members." -ForegroundColor Black -BackgroundColor White
 }
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
