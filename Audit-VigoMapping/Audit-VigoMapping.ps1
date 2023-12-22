@@ -120,7 +120,9 @@ Function Get-ItemFromDesktop {
 
   Process {
     Try {
+      Write-LogInfo -LogPath $sLogFile -Message "Get-ItemFromDesktop: Searching users 'Desktop' for $Search"
       $results = @(Get-ChildItem -Path $env:userprofile\Desktop\* -Filter "$Search" | Sort-Object -Property Name)
+      Write-LogInfo -LogPath $sLogFile -Message "Found $($results.Length) items"
       return $results
     }
 
@@ -137,34 +139,6 @@ Function Get-ItemFromDesktop {
     }
   }
 }
-
-<#
-Function <FunctionName> {
-  Param ()
-
-  Begin {
-    Write-LogInfo -LogPath $sLogFile -Message "<description of what is going on>..."
-  }
-
-  Process {
-    Try {
-      <code goes here>
-    }
-
-    Catch {
-      Write-LogError -LogPath $sLogFile -Message $_.Exception -ExitGracefully
-      Break
-    }
-  }
-
-  End {
-    If ($?) {
-      Write-LogInfo -LogPath $sLogFile -Message "Completed Successfully."
-      Write-LogInfo -LogPath $sLogFile -Message " "
-    }
-  }
-}
-#>
 
 #-----------------------------------------------------------[Markdown]------------------------------------------------------------
 
@@ -203,22 +177,27 @@ else {
 Write-Host " "
 Write-Host "Searching for VigoGLogon shortcut on desktop" -ForegroundColor Yellow
 Write-Host " "
-$results = Get-ItemFromDesktop -Search "Vigo*"
-Write-Host "Found $($results.Length) shortcuts" -ForegroundColor Yellow
+$results = @(Get-ChildItem -Path $env:userprofile\Desktop\* -Filter "Vigo*.lnk" | Sort-Object -Property Name)
+Write-Host "Found $($results.Length) items" -ForegroundColor Yellow
+Write-LogInfo -LogPath $sLogFile "Found $($results.Length) items"
 $results | ForEach-Object -Begin { $script:idx = 0 } -Process { 
   ++$idx
   $shell = New-Object -ComObject WScript.Shell
-
+  Write-LogInfo -LogPath $sLogFile -Message "Processing $($_.Name)"
   Write-Host "Processing $($_.Name)"
   $targetPath = $shell.CreateShortcut($_).TargetPath
   Write-Host "Shortcut targets '$targetPath'"
+  Write-LogInfo -LogPath $sLogFile "Shortcut targets '$targetPath'"
   if ($targetPath -ne "Z:\Haulage\VigoGLogon.exe") {
-    Write-Host "Invalid shortcut found" -ForegroundColor Red
-    Write-Host "Remove this shortcut to prevent Vigo issues"
-    Write-Host "Ensure shortcuts are created from the correctly mapped Z Drive"
+    Write-LogInfo -LogPath $sLogFile "Invalid shortcut found."
+    Write-LogInfo -LogPath $sLogFile "Remove the shortcut $($_.Name) to prevent Vigo issues."
+    Write-Host "Invalid shortcut found." -ForegroundColor Red
+    Write-Host "Remove this shortcut to prevent Vigo issues."
+    Write-Host "Ensure shortcuts are created from the correctly mapped Z Drive."
   }
   else {
     Write-Host "Valid shortcut found" -ForegroundColor Green
+    Write-LogInfo -LogPath $sLogFile "Valid shortcut found."
   }
   Write-Host " "
 }
