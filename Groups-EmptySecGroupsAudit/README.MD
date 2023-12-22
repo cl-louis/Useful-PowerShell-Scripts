@@ -1,10 +1,10 @@
 # Groups-EmptySecGroupsAudit
 
-Brief description of script
+This PowerShell script creates a report of any non-builtin Security Groups that have no members.
 
 ## Use case
 
-Explain use case of script
+Use this script to find Security Groups that could be scheduled for removal.
 
 ## Run
 
@@ -12,6 +12,5 @@ Right-Click -> 'Run with PowerShell'
 
 ## Output
 
-Any script outputs, e.g. report file, logs, etc.
-
-Use [Google Style Guide](https://google.github.io/styleguide/docguide/style.html) for help in formatting the markdown file
+The script will automatically create a directory called 'Groups-EmptySecGroupsAudit' in the users 'Documents' directory.
+In here, the script will create the report and log file(s).
