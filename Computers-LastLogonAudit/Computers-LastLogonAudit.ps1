@@ -58,7 +58,7 @@ $sScriptVersion = "1.2"
 $sScriptName = (Get-Item $PSCommandPath ).Basename
 
 # Script output directory
-$sOutputDir = Join-Path -Path $env:userprofile -ChildPath "Documents" -AdditionalChildPath $sScriptName
+$sOutputDir = "$(Join-Path -Path $env:userprofile -ChildPath "Documents" | Join-Path -ChildPath $sScriptName)"
 # Creates output directory
 New-Item -ItemType Directory -Force -Path $sOutputDir -ErrorAction $ErrorActionPreference | Out-Null
 
@@ -140,7 +140,8 @@ else {
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion
+Start-Transcript -Path $sTranscriptFile | Out-Null
+Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion | Out-Null
 # SCRIPT START
 
 # Get all domain controllers in domain
@@ -195,11 +196,15 @@ $Output = foreach ( $computer in $computers ) {
   @{Name = "LatestLogonServer"; Expression = { $latestLogonServer } }
 }
 
+
 Write-LogInfo -LogPath $sLogFile -Message "Computers-LastLogonAudit: Writing report file to $sReportFile"
-$Output | Export-Csv $sReportFile -Encoding UTF8 -NoTypeInformation
+$Output | Export-Csv $sReportFile -NoTypeInformation
+
+Write-Host "Report created in $sReportFile" -ForegroundColor Green
+
+Read-Host -Prompt "Press enter to exit..." | Out-Null
 
 Write-LogInfo -LogPath $sLogFile -Message "Computers-LastLogonAudit: Script finished"
 # SCRIPT END
 Stop-Log -LogPath $sLogFile
-Pause
-Exit
+Stop-Transcript
