@@ -85,7 +85,7 @@ if ($PSVersionTable.PSVersion.Major -ge 6) {
 else {
   Write-Host $sScriptName -ForegroundColor Black -BackgroundColor White
   Write-Host "Version: $sScriptVersion" -ForegroundColor Black -BackgroundColor White
-  Write-Host "<SCRIPT_DESCRIPTION>" -ForegroundColor Black -BackgroundColor White
+  Write-Host "This script gets all OUs in a domain and finds the applied/inherited GPOs." -ForegroundColor Black -BackgroundColor White
 }
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
