@@ -1,4 +1,4 @@
-# <SCRIPT_NAME>
+# OU-GPOApplicationAuditTool
 
 This script finds all OUs in a domain and their applied/inherited GPOs.
 
