@@ -1,4 +1,4 @@
-# <SCRIPT_NAME>
+# Install-RSATTools
 
 This script installs RSAT.ServerManager.Tools, RSAT.ActiveDirectory.DS-LDS.Tools, RSAT.CertificateServices.Tools, RSAT.DHCP.Tools, RSAT.Dns.Tools, and RSAT.GroupPolicy.Management.Tools onto a users PC.
 
