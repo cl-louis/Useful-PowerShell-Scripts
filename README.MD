@@ -50,3 +50,9 @@ See README.MD in OU-GPOApplicationAuditTool for more information.
 This PowerShell script creates a report of LastLogon for all User Accounts in the current logged on users domain. The script queries all DC's in the domain to find the most recent logon as LastLogon is stored independantly on each DC in a Forest.
 
 See README.MD in Users-LastLogonAudit for more information.
+
+### Install-RSATTools
+
+This script installs RSAT.ServerManager.Tools, RSAT.ActiveDirectory.DS-LDS.Tools, RSAT.CertificateServices.Tools, RSAT.DHCP.Tools, RSAT.Dns.Tools, and RSAT.GroupPolicy.Management.Tools onto a users PC.
+
+See README.MD in Install-RSATTools for more information.
