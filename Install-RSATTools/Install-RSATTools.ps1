@@ -107,7 +107,7 @@ if ($PSVersionTable.PSVersion.Major -ge 6) {
 else {
   Write-Host $sScriptName -ForegroundColor Black -BackgroundColor White
   Write-Host "Version: $sScriptVersion" -ForegroundColor Black -BackgroundColor White
-  Write-Host "<SCRIPT_DESCRIPTION>" -ForegroundColor Black -BackgroundColor White
+  Write-Host "This script installs: RSAT.ServerManager.Tools, RSAT.ActiveDirectory.DS-LDS.Tools, RSAT.CertificateServices.Tools, RSAT.DHCP.Tools, RSAT.Dns.Tools, and RSAT.GroupPolicy.Management.Tools onto a users PC." -ForegroundColor Black -BackgroundColor White
 }
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
