@@ -74,7 +74,10 @@ $sTranscriptFile = Join-Path -Path $sOutputDir -ChildPath $sTranscriptName
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 
 Function Test-DriveMappingRemotePath {
-  Param ([Parameter(Mandatory = $true)][string]$Drive, [Parameter(Mandatory = $true)][string]$RemotePath)
+  Param (
+    [Parameter(Mandatory = $true, HelpMessage = "Drive letter to test. Requires suffixing with a colon.")][string]$Drive, 
+    [Parameter(Mandatory = $true, HelpMessage="Remote path to test, usually a UNC path.")][string]$RemotePath
+  )
 
   Begin {
     Write-LogInfo -LogPath $sLogFile -Message "Test-DriveMapping: Param -Drive $Drive"
