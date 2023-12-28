@@ -56,3 +56,10 @@ See README.MD in Users-LastLogonAudit for more information.
 This script installs RSAT.ServerManager.Tools, RSAT.ActiveDirectory.DS-LDS.Tools, RSAT.CertificateServices.Tools, RSAT.DHCP.Tools, RSAT.Dns.Tools, and RSAT.GroupPolicy.Management.Tools onto a users PC.
 
 See README.MD in Install-RSATTools for more information.
+
+### Set-UserPassword
+
+This script allows a user to search for a domain account and then generates a secure password for the account.
+The password is set on the PDC of the local PCs domain.
+
+See README.MD in Set-UserPassword for more information.
