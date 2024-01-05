@@ -70,3 +70,9 @@ This script finds installed software packages on the local computer and generate
 report.
 
 See README.MD in Get-SoftwareInventory for more information.
+
+### Get-OpenPortsWithProcess
+
+This script finds open/listening TCP and UDP ports on the local computer with the associated process.
+
+See README.MD in Get-OpenPortsWithProcess for more information.
