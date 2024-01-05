@@ -63,3 +63,10 @@ This script allows a user to search for a domain account and then generates a se
 The password is set on the PDC of the local PCs domain.
 
 See README.MD in Set-UserPassword for more information.
+
+### Get-SoftwareInventory
+
+This script finds installed software packages on the local computer and generates a
+report.
+
+See README.MD in Get-SoftwareInventory for more information.
