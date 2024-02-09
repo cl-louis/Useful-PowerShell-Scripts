@@ -76,3 +76,9 @@ See README.MD in Get-SoftwareInventory for more information.
 This script finds open/listening TCP and UDP ports on the local computer with the associated process.
 
 See README.MD in Get-OpenPortsWithProcess for more information.
+
+### Groups-AuditGroups
+
+This script creates a report of all Security Groups in the domain.
+
+See README.MD in Get-AuditGroups for more information.
