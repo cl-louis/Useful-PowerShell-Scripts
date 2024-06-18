@@ -82,3 +82,9 @@ See README.MD in Get-OpenPortsWithProcess for more information.
 This script creates a report of all Security Groups in the domain.
 
 See README.MD in Get-AuditGroups for more information.
+
+### Get-EOLEmailVolume
+
+This script creates a report of EOL email volume (send and receive).
+
+See README.MD in Get-EOLEmailVolume for more information.
