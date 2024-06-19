@@ -11,10 +11,10 @@
   N/A
 
 .OUTPUTS Log File
-  Log file stored in "Documents\$PSCommandPath\Users-LastLogonAudit.log"
+  Log file stored in "Documents\Users-LastLogonAudit\Users-LastLogonAudit.log"
 
 .OUTPUTS Report File
-  Report file stored in "Documents\$PSCommandPath\Users-LastLogonAudit.csv"
+  Report file stored in "Documents\Users-LastLogonAudit\Users-LastLogonAudit.csv"
 
 .NOTES
   Version:        1.2
