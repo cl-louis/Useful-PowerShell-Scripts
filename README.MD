@@ -94,3 +94,9 @@ See README.MD in Get-EOLEmailVolume for more information.
 This function gets the current user sessions on remote or local computers.
 
 See README.MD in Get-LoggedInUser for more information.
+
+### Get-SMBShareAudit
+
+This function gets the current user sessions on remote or local computers.
+
+See README.MD in Get-SMBShareAudit for more information.
