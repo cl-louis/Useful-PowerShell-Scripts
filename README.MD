@@ -88,3 +88,9 @@ See README.MD in Get-AuditGroups for more information.
 This script creates a report of EOL email volume (send and receive).
 
 See README.MD in Get-EOLEmailVolume for more information.
+
+### Get-LoggedInUser
+
+This function gets the current user sessions on remote or local computers.
+
+See README.MD in Get-LoggedInUser for more information.
