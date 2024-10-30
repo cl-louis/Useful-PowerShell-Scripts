@@ -97,7 +97,7 @@ See README.MD in Get-LoggedInUser for more information.
 
 ### Get-SMBShareAudit
 
-This function gets the current user sessions on remote or local computers.
+This script audits the permissions of SMB shares on any 'Server' of a given AD Domain.
 
 See README.MD in Get-SMBShareAudit for more information.
 
